@@ -1,7 +1,3 @@
-# hello-world
-
-# Functions
-
 
 
 # Functions - args and kwargs
