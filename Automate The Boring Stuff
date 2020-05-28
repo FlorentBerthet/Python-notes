@@ -1,1 +1,20 @@
+'''
+Variable names can't begin with a number
+
+-------------------------------------------------------------
+print('Hello world!')
+print('What is your name?')    # ask for their name
+myName = input()
+print('It is good to meet you, ' + myName)
+print('The length of your name is:')
+print(len(myName))
+print('What is your age?')    # ask for their age
+myAge = input()
+print('You will be ' + str(int(myAge) + 1) + ' in a year.')
+
+-------------------------------------------------------------
+print() # prints a blank line
+input() # waits for the user to type some text on the keyboard and press ENTER
+You can't concatenate an integer and a string, e.g.: print('I am ' + 29 + ' years old.')
+You can use the str() function as a solution: print('I am ' + str(29) + ' years old.')
 
