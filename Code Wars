@@ -88,4 +88,64 @@ row_sum_odd_numbers(1); # 1
 row_sum_odd_numbers(2); # 3 + 5 = 8
 """
 def row_sum_odd_numbers(n):
-    #your code here
+    # We can solve this with these 2 steps:
+        # first_number_in_row = n**2 - (n-1)
+        # sum_odd=first_number_in_row * n + (n-1) * n
+            # first_number * n multiplies the first number in the row by the number of items in the row
+            # (n-1) * n represents the sum of the differences between the subsequent numbers and the first number
+    # Merging these two gives us the solution below.
+
+sum_odd=(n**2 - (n-1))*n + (n-1)*n
+
+   return sum_odd
+
+# Solution 2
+def row_sum_odd_numbers(n):
+    return n ** 3
+
+# Create Phone Number
+
+    # Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+    # Example:
+        # create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) # => returns "(123) 456-7890"
+
+def create_phone_number(n):
+    phone_number='('
+    for i, num in enumerate(n):
+        if i<2:
+            phone_number += str(num)
+        elif i==2:
+            phone_number += str(num)+') '
+        elif i<5:
+            phone_number += str(num)
+        elif i==5:
+            phone_number += str(num)+'-'
+        elif i<9:
+            phone_number += str(num)
+        elif i==9:
+            phone_number += str(num)
+    return(phone_number)
+
+# Solution 2
+def create_phone_number(n):
+    return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
+
+# Is a number prime?
+
+def is_prime(n):
+
+    if (n <= 1):
+        return False
+    if (n <= 3):
+        return True
+
+    if (n % 2 == 0 or n % 3 == 0):
+        return False
+
+    i = 5
+    while(i * i <= n):
+        if (n % i == 0 or n % (i + 2) == 0):
+            return False
+        i = i + 6
+
+    return True
