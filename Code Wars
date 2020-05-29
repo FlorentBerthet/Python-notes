@@ -192,3 +192,43 @@ from math import sqrt
 def is_prime(n):
   return n > 1 and all(n % d for d in xrange(2, int(sqrt(n)) + 1))
 
+# Convert string to camel case
+
+'''
+Complete the method/function so that it converts dash/underscore delimited words into camel casing.
+The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case,
+also often referred to as Pascal case).
+
+Examples
+
+to_camel_case("the-stealth-warrior") # returns "theStealthWarrior"
+
+to_camel_case("The_Stealth_Warrior") # returns "TheStealthWarrior"
+
+'''
+
+from string import ascii_letters
+
+def to_camel_case(text):
+    
+    # Creating a dictionary with each possible part to replace and their replacement
+    xdic={}
+
+    for i in ascii_letters:
+        xdic['_'+i]=i.upper()
+        xdic['-'+i]=i.upper()
+
+    for key in xdic:
+        text=text.replace(key, xdic[key])
+
+    return(text)
+
+# Solution 2
+
+def to_camel_case(s):
+    return s[0] + s.title().translate(None, "-_")[1:] if s else s
+   
+# Solution 3
+
+def to_camel_case(text):
+    return text[:1] + text.title()[1:].replace('_', '').replace('-', '')
