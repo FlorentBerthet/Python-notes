@@ -1,0 +1,13 @@
+'''
+Use the elif condition is used to include multiple conditional expressions between if and else.
+
+>>>> if x==1:
+...  print('X is 1')
+... elif x==5:
+...  print('X is 5')
+... elif x==10:
+...  print('X is 10')
+... else:
+...  print('X is something else')
+
+'''
