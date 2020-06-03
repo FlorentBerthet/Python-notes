@@ -1,4 +1,9 @@
 
+### An iterable is any Python object capable of returning its members one at a time, permitting it to be iterated over 
+in a for-loop.
+Familiar examples of iterables include lists, tuples, and strings - any such sequence can be iterated over in a for-loop.
+
+
 ### Use the elif condition is used to include multiple conditional expressions between if and else.
 
 if x==1:
@@ -24,6 +29,9 @@ from collections import Counter
 test_str = "GeeksforGeeks"
 res = Counter(test_str)
 
+# Output:
+Counter({'e': 4, 's': 2, 'k': 2, 'G': 2, 'o': 1, 'r': 1, 'f': 1})
+
 '''
 Using dict.get()
 
@@ -32,3 +40,8 @@ if its new, it assigns 0 as initial and appends 1 to it,
 else appends 1 to previously holded value of that element in dictionary.
 '''
 
+test_str = "GeeksforGeeks"
+res = {} 
+for keys in test_str: 
+    res[keys] = res.get(keys, 0) + 1
+ 
