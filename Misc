@@ -1,13 +1,34 @@
-'''
-Use the elif condition is used to include multiple conditional expressions between if and else.
 
->>>> if x==1:
-...  print('X is 1')
-... elif x==5:
-...  print('X is 5')
-... elif x==10:
-...  print('X is 10')
-... else:
-...  print('X is something else')
+### Use the elif condition is used to include multiple conditional expressions between if and else.
+
+if x==1:
+    print('X is 1')
+elif x==5:
+    print('X is 5')
+elif x==10:
+    print('X is 10')
+else:
+    print('X is something else')
+
+
+### Frequency of each character in String
 
 '''
+Using collections.Counter()
+The most suggested method that could be used to find all occurrences is this method,
+this actually gets all element frequency and could also be used to print single element frequency if required.
+'''
+
+from collections import Counter 
+
+test_str = "GeeksforGeeks"
+res = Counter(test_str)
+
+'''
+Using dict.get()
+
+get() method is used to check the previously occurring character in string, 
+if its new, it assigns 0 as initial and appends 1 to it, 
+else appends 1 to previously holded value of that element in dictionary.
+'''
+
