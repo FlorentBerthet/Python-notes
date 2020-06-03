@@ -342,3 +342,46 @@ def scramble(s1,s2):
     # Using set subtraction, we know that if anything is left over,
     # something exists in s2 that doesn't exist in s1
     return len(Counter(s2)- Counter(s1)) == 0
+
+# Detect Pangram
+'''
+ A pangram is a sentence that contains every single letter of the alphabet at least once.
+ For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram,
+ because it uses the letters A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+'''
+
+def is_pangram(s):
+    letters_in_s=""
+    for letter in s:
+        if letter.isalpha():
+            letters_in_s="".join([letters_in_s, letter.lower()])
+    if len(set(letters_in_s))<26:
+        return False
+    else:
+        return True
+
+#  Solution 2
+
+import string
+
+def is_pangram(s):
+    return set(string.lowercase) <= set(s.lower())
+
+#  Solution 3
+import string
+
+def is_pangram(s):
+    s = s.lower()
+    for char in 'abcdefghijklmnopqrstuvwxyz':
+        if char not in s:
+            return False
+    return True
+
+# Solution 4
+
+import string
+
+def is_pangram(s):
+    return set(string.ascii_lowercase).issubset(s.lower())
