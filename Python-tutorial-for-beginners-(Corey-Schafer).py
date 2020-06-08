@@ -33,7 +33,7 @@ message = greeting + ', ' + name
 print(message)
 	-> Hello, Michael
 
-message = '{}, {}'. Welcome!'.format(greeting, name)'
+message = '{}, {}. Welcome!'.format(greeting, name)
 
 print(message)
 	-> Hello, Michael. Welcome!
