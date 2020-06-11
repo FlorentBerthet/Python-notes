@@ -34,6 +34,12 @@ The input() function always returns a string, even if the user enters a number
 7
 >>> int(7.7) + 1
 8
+
+---
+elif statements
+
+Remember that at most only one of the clauses will be executed, and for elif statements, the order matters!
+
 ---
 “If you ran the following program:
 print('Hello')
@@ -46,4 +52,5 @@ print('Hello', end='')
 print('World')
 the output would look like this:
 HelloWorld”
+
 
