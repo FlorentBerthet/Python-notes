@@ -34,6 +34,16 @@ The input() function always returns a string, even if the user enters a number
 7
 >>> int(7.7) + 1
 8
+---
+“If you ran the following program:
+print('Hello')
+print('World')
+the output would look like this:
+Hello
+World
+The two strings appear on separate lines because the print() function automatically adds a newline character to the end of the string it is passed. However, you can set the end keyword argument to change this to a different string. For example, if the program were this:
+print('Hello', end='')
+print('World')
+the output would look like this:
+HelloWorld”
 
-Excerpt From: Sweigart, Albert. “Automate the Boring Stuff with Python: Practical Programming for Total Beginners”. Apple Books. 
-Excerpt From: Sweigart, Albert. “Automate the Boring Stuff with Python: Practical Programming for Total Beginners”. Apple Books. 
