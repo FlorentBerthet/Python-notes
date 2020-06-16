@@ -198,3 +198,41 @@ in the sort() method call.
 
 This causes the sort() function to treat all the items in the list as if they were lowercase without
 actually changing the values in the list.
+
+---
+“You can also split up a single instruction across multiple lines using the \ line continuation character at the end.
+Think of \ as saying, “This instruction continues on the next line.” The indentation on the line after a \ line
+continuation is not significant. For example, the following is valid Python code:
+
+print('Four score and seven ' + \
+      'years ago...')
+      
+These tricks are useful when you want to rearrange long lines of Python code to be a bit more readable.”
+
+---
+
+“If you have only one value in your tuple, you can indicate this by placing a trailing comma after the value
+inside the parentheses. Otherwise, Python will think you’ve just typed a value inside regular parentheses.
+The comma is what lets Python know this is a tuple value.
+
+>>> type(('hello',))
+<class 'tuple'>
+
+>>> type(('hello'))
+<class 'str'>”
+
+---
+“When you assign a list to a variable, you are actually assigning a list reference to the variable”
+
+>>> spam = [0, 1, 2, 3, 4, 5]
+>>> cheese = spam
+>>> cheese[1] = 'Hello!'
+   >>> spam
+   [0, 'Hello!', 2, 3, 4, 5]
+   >>> cheese
+   [0, 'Hello!', 2, 3, 4, 5]
+   
+“Variables will contain references to list values rather than list values themselves.
+But for strings and integer values, variables simply contain the string or integer value.
+Python uses references whenever variables must store values of mutable data types, such as lists or dictionaries.
+For values of immutable data types such as strings, integers, or tuples, Python variables will store the value itself.
