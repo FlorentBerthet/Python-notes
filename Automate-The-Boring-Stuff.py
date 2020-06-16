@@ -135,4 +135,66 @@ When this program is run, the output looks like this:
 Error: Invalid argument.
 The reason print(spam(1)) is never executed is because once the execution jumps to the code in the except clause, it does not return to the try clause. Instead, it just continues moving down as normal.”
 
+---
+“Lists can also contain other list values. The values in these lists of lists can be accessed using multiple indexes,
+like so:
+>>> spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]
+>>> spam[0]
+['cat', 'bat']
+>>> spam[0][1]
+'bat'
+>>> spam[1][4]
+50”
 
+---
+“The Multiple Assignment Trick
+The multiple assignment trick is a shortcut that lets you assign multiple variables with the values in a list
+in one line of code. So instead of doing this:
+>>> cat = ['fat', 'black', 'loud']
+>>> size = cat[0]
+>>> color = cat[1]
+>>> disposition = cat[2]
+
+you could type this line of code:
+>>> cat = ['fat', 'black', 'loud']
+>>> size, color, disposition = cat”
+
+---
+remove vs del:
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam.remove('bat')
+
+>>> spam = ['cat', 'bat', 'elephant']
+>>> del spam[2]
+
+“If the value appears multiple times in the list, only the first instance of the value will be removed. ”
+
+ ---
+ reverse:
+
+>>> spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants']
+>>> spam.sort(reverse=True)
+>>> spam
+['elephants', 'dogs', 'cats', 'badgers', 'ants']
+
+---
+Third, sort() uses “ASCIIbetical order” rather than actual alphabetical order for sorting strings.
+This means uppercase letters come before lowercase letters. Therefore, the lowercase a is sorted so
+that it comes after the uppercase Z. For an example, enter the following into the interactive shell:
+
+>>> spam = ['Alice', 'ants', 'Bob', 'badgers', 'Carol', 'cats']
+>>> spam.sort()
+>>> spam
+['Alice', 'Bob', 'Carol', 'ants', 'badgers', 'cats']
+
+If you need to sort the values in regular alphabetical order, pass str. lower for the key keyword argument
+in the sort() method call.
+
+>>> spam = ['a', 'z', 'A', 'Z']
+>>> spam.sort(key=str.lower)
+>>> spam
+['a', 'A', 'z', 'Z']
+
+This causes the sort() function to treat all the items in the list as if they were lowercase without
+actually changing the values in the list.
