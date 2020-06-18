@@ -236,3 +236,27 @@ The comma is what lets Python know this is a tuple value.
 But for strings and integer values, variables simply contain the string or integer value.
 Python uses references whenever variables must store values of mutable data types, such as lists or dictionaries.
 For values of immutable data types such as strings, integers, or tuples, Python variables will store the value itself.
+
+---
+Collatz Sequence:
+def collatz(number):
+    while number > 1:
+        if number % 2 == 0:
+            print(int(number / 2))
+            number = number / 2
+        else:
+            print (int(3 * number + 1))
+            number = 3 * number + 1
+
+print("Enter a number")
+number = int(input())
+collatz(number)
+
+---
+“What are the three Boolean operators?”
+And, Or, Not
+
+---
+
+
+
