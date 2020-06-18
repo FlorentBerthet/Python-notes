@@ -610,3 +610,82 @@ def zeros(n):
 # Solution 5
 def zeros(n):
     return n/5 + zeros(n/5) if n >= 5 else 0
+
+
+
+# Square into Squares. Protect trees!
+'''
+Task
+Given a positive integral number n, return a strictly increasing sequence (list/array/string depending on the language)
+of numbers, so that the sum of the squares is equal to n².
+
+If there are multiple solutions (and there will be), return as far as possible the result with the largest possible values:
+
+Examples
+decompose(11) must return [1,2,4,10]. Note that there are actually two ways to decompose 11²,
+11² = 121 = 1 + 4 + 16 + 100 = 1² + 2² + 4² + 10² but don't return [2,6,9], since 9 is smaller than 10.
+
+For decompose(50) don't return [1, 1, 4, 9, 49] but [1, 3, 5, 8, 49] since [1, 1, 4, 9, 49] doesn't form
+a strictly increasing sequence.
+
+Note
+Neither [n] nor [1,1,1,…,1] are valid solutions. If no valid solution exists, return nil, null, Nothing,
+None (depending on the language) or "[]" (C) ,{} (C++), [] (Swift, Go).
+'''
+
+import math
+
+def decompose(n):
+    root_list = []
+    # Starting from the square of n, find the next biggest square and insert its root to the list
+    candidate = n - 1
+    root_list.insert(0, candidate)
+    remainder = n**2 - candidate**2
+    
+    # From the remainder, find the biggest squares, and insert their root to the list
+    while remainder > 0:
+        candidate = int(math.sqrt(remainder))
+        if remainder in [2, 3, 6, 7, 8] or remainder == root_list[0]:
+            break
+        root_list.insert(0, candidate)
+        remainder -= candidate**2
+
+    # If the remainder is still > 0, we have to modify our list to find the next biggest squares
+    while remainder > 0:
+
+        # Delete the smallest root if it's is < 3 and update remainder
+        # Substract 1 from the smallest root if it's is > 3 and update remainder
+        if root_list[0] < 4:
+            if len(root_list) == 1:
+                print("Number = " + str(n) + "\nSquares = None\n")
+                return None
+                break
+            remainder += root_list[0]**2
+            del root_list[0]
+        remainder += root_list[0]**2 - (root_list[0] - 1)**2
+        root_list[0] -= 1
+
+        # Again, from the remainder, find the biggest squares, and insert their root to the list
+        while remainder > 0:
+            candidate = int(math.sqrt(remainder))
+            if remainder in [2, 3, 6, 7, 8] or candidate >= root_list[0]:
+                break
+            root_list.insert(0, candidate)
+            remainder -= candidate**2
+    print("Number = " + str(n) + "\nSquares = " + str(root_list) +"\n")
+    return(root_list)
+
+#Solution 2
+
+def decompose(n):
+    def _recurse(s, i):
+        if s < 0:
+            return None
+        if s == 0:
+            return []
+        for j in xrange(i-1, 0, -1):
+            sub = _recurse(s - j**2, j)
+            if sub != None:
+                return sub + [j]
+    return _recurse(n**2, n)
+
