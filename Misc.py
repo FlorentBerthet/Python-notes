@@ -45,3 +45,27 @@ res = {}
 for keys in test_str: 
     res[keys] = res.get(keys, 0) + 1
  
+### Classes
+
+class Student:
+	def __init__(self, age, nom, prenom):
+		self.age = age
+		self.nom = nom
+		self.prenom = prenom
+	def __repr__(self):
+		return str(self.prenom) + " " + str(self.nom) + " (" + str(self.age) + " ans)"
+	def __str__(self):
+		return str(self.prenom) + " " + str(self.nom) + " (" + str(self.age) + " ans)"
+
+
+def AddStudent( cont, item ):
+	cont[ item.prenom ] = item
+
+
+students = dict()
+AddStudent( students, Student(25, 'berthet', 'jerome'))
+AddStudent( students, Student(20, 'berthet', 'florent'))
+AddStudent( students, Student(20, 'berthet', 'nadia'))
+print students
+
+
