@@ -258,5 +258,12 @@ And, Or, Not
 
 ---
 
+“If you have only one value in your tuple, you can indicate this by placing a trailing comma after the value inside the parentheses.”
+“>>> type(('hello',))
+<class 'tuple'>”
 
+“However, lists can be modified because they are mutable objects. The append() method doesn’t create a new list object; it changes the existing list object. We call this “modifying the object in-place.”
+
+Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. 
+Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. 
 
