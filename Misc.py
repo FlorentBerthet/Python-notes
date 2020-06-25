@@ -68,4 +68,7 @@ AddStudent( students, Student(20, 'berthet', 'florent'))
 AddStudent( students, Student(20, 'berthet', 'nadia'))
 print students
 
+---
+Use list.append() to append a single value, and list.extend() to append multiple values.
 
+---
