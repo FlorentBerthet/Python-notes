@@ -264,6 +264,22 @@ And, Or, Not
 
 “However, lists can be modified because they are mutable objects. The append() method doesn’t create a new list object; it changes the existing list object. We call this “modifying the object in-place.”
 
-Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. 
-Excerpt From: Al Sweigart. “Automate the Boring Stuff with Python.” iBooks. 
+>>> eggs.append('moose') # append() modifies the list "in place".
+>>> eggs = ['bat', 'rat', 'cow'] # This creates a new list, which has a new
+identity.”
+
+---
+“The copy Module’s copy() and deepcopy() Functions”
+
+>> import copy
+
+>>> spam = ['A', 'B', 'C', 'D']
+>>> id(spam)
+44684232
+
+>>> cheese = copy.copy(spam)
+>>> id(cheese) # cheese is a different list with different identity.
+44685832”
+
+“If the list you need to copy contains lists, then use the copy.deepcopy() function instead of copy.copy(). The deepcopy() function will copy these inner lists as well.”
 
