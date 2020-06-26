@@ -107,6 +107,7 @@ But if the variable is not used in an assignment statement, it is a global varia
         return 42 / divideBy
     except ZeroDivisionError:
         print('Error: Invalid argument.')
+        
 
 print(spam(2))
 print(spam(12))
