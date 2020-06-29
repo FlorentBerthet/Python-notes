@@ -1,4 +1,4 @@
-'''
+"""
 Expressions consist of values (such as 2) and operators (such as +), and they can always evaluate (that is, reduce) 
 down to a single value. That means you can use expressions anywhere in Python code that you could also use a value.
 
@@ -8,7 +8,7 @@ to be stored. If you enter the assignment statement spam = 42, then a variable n
 value 42 stored in it.
 ---
 Variable names can't begin with a number
-
+"""
 ---
 print('Hello world!')
 print('What is your name?')    # ask for their name
@@ -112,29 +112,27 @@ But if the variable is not used in an assignment statement, it is a global varia
 The program execution moves to the start of a following except clause if an error happens.”
 
 ---
-“def spam(divideBy):
+def spam(divideBy):
     try:
         return 42 / divideBy
     except ZeroDivisionError:
         print('Error: Invalid argument.')
         
-
 print(spam(2))
-print(spam(12))
 print(spam(0))
 print(spam(1))
-When code in a try clause causes an error, the program execution immediately moves to the code in the except clause.
-After running that code, the execution continues as normal. The output of the previous program is as follows:
-21.0
-3.5
+
+# When code in a try clause causes an error, the program execution immediately moves to the code in the except clause.
+# After running that code, the execution continues as normal. The output of the previous program is as follows:
+21.0  
 Error: Invalid argument.
 None
 42.0
-Note that any errors that occur in function calls in a try block will also be caught. Consider the following program, which instead has the spam()
-calls in the try block:
+
+# Note that any errors that occur in function calls in a try block will also be caught. Consider the following program, which instead has the spam()
+# calls in the try block:
 def spam(divideBy):
     return 42 / divideBy
-
 try:
     print(spam(2))
     print(spam(12))
@@ -146,8 +144,8 @@ When this program is run, the output looks like this:
 21.0
 3.5
 Error: Invalid argument.
-The reason print(spam(1)) is never executed is because once the execution jumps to the code in the except clause, it does not return to the try clause. 
-Instead, it just continues moving down as normal.”
+# The reason print(spam(1)) is never executed is because once the execution jumps to the code in the except clause, it does not return to the try clause. 
+# Instead, it just continues moving down as normal.”
 
 ---
 “Lists can also contain other list values. The values in these lists of lists can be accessed using multiple indexes,
