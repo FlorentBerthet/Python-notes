@@ -63,7 +63,6 @@ cats,dogs,mice”
 ---
 “Think of a scope as a container for variables. When a scope is destroyed, all the values stored in the scope’s variables are forgotten. There is only one global scope, and it is created when your program begins. When your program terminates, the global scope is destroyed, and all its variables are forgotten. Otherwise, the next time you ran your program, the variables would remember their values from the last time you ran it.”
 
-
 ---
 
 “Scopes matter for several reasons:
