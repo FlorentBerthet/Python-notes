@@ -1,30 +1,39 @@
-```Python
 
-# codewars.com
+'''
+Highest and Lowest (7kyu):
 
-# Highest and Lowest (7kyu)
+You are given a string of space separated numbers, and have to return the highest and lowest number.
 
-# Incorrect solution. 
-# For some reason, gives '(ValueError: min() arg is an empty sequence)' even though it works on Sublime Text
-  
+Example:
+    high_and_low("1 2 3 4 5")  # return "5 1"
+    high_and_low("1 2 -3 4 5") # return "5 -3"
+    high_and_low("1 9 3 4 -5") # return "9 -5"
+    
+Notes:
+    All numbers are valid Int32, no need to validate them.
+    There will always be at least one number in the input string.
+    Output string must be two numbers separated by a single space, and highest number is first.
+'''
+
+# Solution:
+
 def high_and_low(numbers):
     numbers = numbers.split(' ')
-    numbers = map(int, numbers)
-    numbers = max(numbers), min(numbers)
-    numbers = str(numbers).replace("(", '"').replace(")",'"').replace(", "," ")
-    print numbers
-
-high_and_low("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6")
-
-# Correct solution:
-
-def high_and_low(numbers):
-    numbers = numbers.split(' ')
-    numbers = sorted(numbers, key=int)
+    numbers = sorted(numbers)
     return numbers[-1] + ' ' + numbers[0]
 
+---
+'''
+Replace With Alphabet Position (6 kyu):
 
-# Replace With Alphabet Position
+Given a string, replace every letter with its position in the alphabet.
+
+If anything in the text isn't a letter, ignore it and don't return it.
+
+"a" = 1, "b" = 2, etc.
+'''
+
+# Solution 1
 
 from string import ascii_lowercase
 
@@ -37,36 +46,56 @@ def alphabet_position(text):
 
 # Solution 2
 
+def alphabet_position(text):
+    return ' '.join(str(ord(c) - 96) for c in text.lower() if c.isalpha())
+
+# Solution 3
+
 from string import ascii_uppercase
 
 def alphabet_position(text):
-    return " ".join(str(ascii_uppercase.index(i) + 1) for i in text.upper() if i in ascii_uppercase)
+    return ' '.join(str(ascii_uppercase.index(i) + 1) for i in text.upper() if i in ascii_uppercase)
 
-# Take a Ten Minute Walk
+---
+'''
+Take a Ten Minute Walk (6 kyu):
+
+You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
+'''
+# Solution 1
 
 def is_valid_walk(walk):
-
-    if len(walk) == 10 and walk.count('n') == walk.count('s') and walk.count('w') == walk.count('e'):
-    	return True
-    else:
-        return False
-
-# Solution 2
-
-def isValidWalk(walk):
     return len(walk) == 10 and walk.count('n') == walk.count('s') and walk.count('e') == walk.count('w')
 
-# Find the odd int
+---
+'''
+Find the odd int (6 kyu):
+
+Given an array, find the integer that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+'''
 
 def find_it(seq):
     for i in seq:
     	if seq.count(i) %2 != 0:
     		return i
 
-# Exes and Ohs
+---
+'''
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
 
-	# Check to see if a string has the same amount of 'x's and 'o's.
-	# The method must return a boolean and be case insensitive. The string can contain any char.
+Examples input/output:
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+'''
+
+# Solution 1
+
 def xo(s):
 	if s.count('x')+s.count('X') == s.count('o')+s.count('O'):
         # if the sum of x's and X's is equal to the sum of o's and O's
@@ -100,12 +129,12 @@ def row_sum_odd_numbers(n):
     # We can solve this with these 2 steps:
         # first_number_in_row = n**2 - (n-1)
         # sum_odd=first_number_in_row * n + (n-1) * n
-            # first_number * n multiplies the first number in the row by the number of items in the row
-            # (n-1) * n represents the sum of the differences between the subsequent numbers and the first number
+   
+    # first_number * n multiplies the first number in the row by the number of items in the row
+    # (n-1) * n represents the sum of the differences between the subsequent numbers and the first number
     # Merging these two gives us the solution below.
-
-sum_odd=(n**2 - (n-1))*n + (n-1)*n
-
+    
+   sum_odd=(n**2 - (n-1))*n + (n-1)*n
    return sum_odd
 
 # Solution 2
@@ -113,11 +142,16 @@ sum_odd=(n**2 - (n-1))*n + (n-1)*n
 def row_sum_odd_numbers(n):
     return n ** 3
 
-# Create Phone Number
+---
+'''
+Create Phone Number (6 kyu):
 
-    # Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
-    # Example:
-        # create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) # => returns "(123) 456-7890"
+Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+    Example:
+        create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) # => returns "(123) 456-7890"
+'''
+
+# Solution 1
 
 def create_phone_number(n):
     phone_number='('
@@ -141,7 +175,20 @@ def create_phone_number(n):
 def create_phone_number(n):
     return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
 
-# Is a number prime?
+---
+'''
+Is a number prime? (6 kyu):
+
+Define a function that takes an integer argument and returns logical value true or false depending on if the integer is a prime.
+
+Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+Requirements
+    You can assume you will be given an integer input.
+    You can not assume that the integer will be only positive. You may be given negative numbers as well (or 0).
+
+NOTE on performance: There are no fancy optimizations required, but still the most trivial solutions might time out. Numbers go up to 2^31 (or similar, depends on language version). Looping all the way up to n, or n/2, will be too slow.
+'''
 
 def is_prime(n):
 
@@ -192,22 +239,21 @@ def is_prime(num):
 from math import sqrt
 
 def is_prime(n):
-  return n > 1 and all(n % d for d in xrange(2, int(sqrt(n)) + 1))
+  return n > 1 and all(n % d for d in range(2, int(sqrt(n)) + 1))
 
-# Convert string to camel case
+---
+'''
+Convert string to camel case (6 kyu):
+
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+Examples:
+    to_camel_case("the-stealth-warrior") # returns "theStealthWarrior"
+    to_camel_case("The_Stealth_Warrior") # returns "TheStealthWarrior"
 
 '''
-Complete the method/function so that it converts dash/underscore delimited words into camel casing.
-The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case,
-also often referred to as Pascal case).
 
-Examples
-
-to_camel_case("the-stealth-warrior") # returns "theStealthWarrior"
-
-to_camel_case("The_Stealth_Warrior") # returns "TheStealthWarrior"
-
-'''
+# Solution 1
 
 from string import ascii_letters
 
@@ -235,9 +281,10 @@ def to_camel_case(s):
 def to_camel_case(text):
     return text[:1] + text.title()[1:].replace('_', '').replace('-', '')
 
-#Pete the baker
-
+---
 '''
+Pete the baker (5 kyu):
+
 Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths.
 Can you help him to find out, how many cakes he could bake considering his recipes?
 
@@ -253,6 +300,7 @@ cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, mil
 # must return 0
 cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000})
 '''
+
 def cakes(recipe, available):
     cakes_per_item={}
     for item in recipe:
@@ -268,10 +316,10 @@ def cakes(recipe, available):
 def cakes(recipe, available):
     return min(available.get(k, 0)/recipe[k] for k in recipe)
   
-
-# Bit Counting
-
+---
 '''
+Bit Counting (6 kyu):
+
 Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
 
 Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
@@ -288,10 +336,10 @@ def countBits(n):
 def countBits(n):
     return bin(n).count("1")
 
-
-# Scramblies
-
+---
 '''
+Scramblies (5 kyu):
+
 Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
 
 Notes:
@@ -343,11 +391,13 @@ def scramble(s1,s2):
     # something exists in s2 that doesn't exist in s1
     return len(Counter(s2)- Counter(s1)) == 0
 
-# Detect Pangram
+---
 '''
- A pangram is a sentence that contains every single letter of the alphabet at least once.
- For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram,
- because it uses the letters A-Z at least once (case is irrelevant).
+Detect Pangram (6 kyu):
+
+A pangram is a sentence that contains every single letter of the alphabet at least once.
+For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram,
+because it uses the letters A-Z at least once (case is irrelevant).
 
 Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 '''
@@ -367,7 +417,7 @@ def is_pangram(s):
 import string
 
 def is_pangram(s):
-    return set(string.lowercase) <= set(s.lower())
+    return set(string.ascii_lowercase) <= set(s.lower())
 
 #  Solution 3
 import string
@@ -387,9 +437,10 @@ def is_pangram(s):
     return set(string.ascii_lowercase).issubset(s.lower())
 
 
-# Catching Car Mileage Numbers (4 kyu)
-
+---
 '''
+Catching Car Mileage Numbers (4 kyu):
+
 "7777...8?!??!", exclaimed Bob, "I missed it again! Argh!" Every time there's an interesting number coming up, he notices and then promptly forgets. Who doesn't like catching those one-off interesting mileage numbers?
 
 Let's make it so Bob never misses another interesting number. We've hacked into his car's computer, and we have a box hooked up that reads mileage numbers. We've got a box glued to his dash that lights up yellow or green depending on whether it receives a 1 or a 2 (respectively).
@@ -548,11 +599,10 @@ def is_interesting(number, awesome_phrases):
     return 0
 
 
-
-
-# Number of trailing zeros of N!
-
+---
 '''
+Number of trailing zeros of N! (5kyu):
+
 Write a program that will calculate the number of trailing zeros in a factorial of a given number.
 
 N! = 1 * 2 * 3 * ... * N
@@ -612,9 +662,10 @@ def zeros(n):
     return n/5 + zeros(n/5) if n >= 5 else 0
 
 
-
-# Square into Squares. Protect trees!
+---
 '''
+Square into Squares. Protect trees! (4 kyu):
+
 Task
 Given a positive integral number n, return a strictly increasing sequence (list/array/string depending on the language)
 of numbers, so that the sum of the squares is equal to n².
