@@ -295,4 +295,3 @@ identity.”
 44685832”
 
 “If the list you need to copy contains lists, then use the copy.deepcopy() function instead of copy.copy(). The deepcopy() function will copy these inner lists as well.”
-
